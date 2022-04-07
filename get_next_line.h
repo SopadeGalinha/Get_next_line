@@ -5,37 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhgoncal <jhgoncal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/01 12:59:25 by jhgoncal          #+#    #+#             */
-/*   Updated: 2022/04/07 17:52:43 by jhgoncal         ###   ########lyon.fr   */
+/*   Created: 2022/04/07 20:00:52 by jhgoncal          #+#    #+#             */
+/*   Updated: 2022/04/07 20:06:54 by jhgoncal         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef	GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 /*
 ** \______________________________HEADERS_____________________________________/
 */
 
-#include <fcntl.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
-#endif
+# include <fcntl.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <unistd.h>
 
 /*
 ** \_____________________________FUNCTIONS_____________________________________/
 */
 
-//* UTILS *
 size_t	ft_strlen(char *str);
 char	*ft_strchr(char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);
-char	*get_next_line(int fd);
 char	*ft_strchr(char *s, int c);
-
+char	*ft_strdup(const char *src);
+char	*get_next_line(int fd);
 
 #endif
