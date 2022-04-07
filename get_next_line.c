@@ -6,7 +6,7 @@
 /*   By: jhgoncal <jhgoncal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 14:15:06 by jhgoncal          #+#    #+#             */
-/*   Updated: 2022/04/07 17:22:55 by jhgoncal         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:43:00 by jhgoncal         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 
 #include <stdio.h>
 #include "get_next_line.h"
+#include <string.h>
 
 static char	*ft_get_the_line(char *save);
 static char	*ft_read_and_save(int fd, char *save);
@@ -51,6 +52,7 @@ static char	*ft_read_and_save(int fd, char *save)
 {
 	char	*buf;
 	int		readed;
+	char	*tmp;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
@@ -65,7 +67,10 @@ static char	*ft_read_and_save(int fd, char *save)
 			return (NULL);
 		}
 		buf[readed] = '\0';
-		save = ft_strjoin(save, buf);
+		tmp = ft_strjoin(save, buf);
+		free(save);
+		save = strdup(tmp);
+		free(tmp);
 	}
 	free(buf);
 	return (save);

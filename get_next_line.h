@@ -6,7 +6,7 @@
 /*   By: jhgoncal <jhgoncal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 12:59:25 by jhgoncal          #+#    #+#             */
-/*   Updated: 2022/04/07 15:50:11 by jhgoncal         ###   ########.fr       */
+/*   Updated: 2022/04/07 17:52:43 by jhgoncal         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #include <unistd.h>
 
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 5
 #endif
 
 /*
