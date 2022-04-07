@@ -6,7 +6,7 @@
 /*   By: jhgoncal <jhgoncal@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 14:15:06 by jhgoncal          #+#    #+#             */
-/*   Updated: 2022/04/07 18:43:00 by jhgoncal         ###   ########lyon.fr   */
+/*   Updated: 2022/04/07 19:38:51 by jhgoncal         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,28 @@
 
 #include <stdio.h>
 #include "get_next_line.h"
-#include <string.h>
 
 static char	*ft_get_the_line(char *save);
 static char	*ft_read_and_save(int fd, char *save);
 static char	*ft_save(char *save);
+
+static char	*ft_strdup(const char *src)
+{
+	char	*cpy;
+	size_t	i;
+
+	i = 0;
+	while (src[i])
+		i++;
+	cpy = (char *)malloc(sizeof(char) * i + 1);
+	if (!(cpy))
+		return (NULL);
+	i = 0;
+	while (*src)
+		cpy[i++] = *src++;
+	cpy[i] = '\0';
+	return (cpy);
+}
 
 
 char *get_next_line(int fd)
@@ -51,8 +68,8 @@ char *get_next_line(int fd)
 static char	*ft_read_and_save(int fd, char *save)
 {
 	char	*buf;
-	int		readed;
 	char	*tmp;
+	int		readed;
 
 	buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
@@ -69,7 +86,7 @@ static char	*ft_read_and_save(int fd, char *save)
 		buf[readed] = '\0';
 		tmp = ft_strjoin(save, buf);
 		free(save);
-		save = strdup(tmp);
+		save = ft_strdup(tmp);
 		free(tmp);
 	}
 	free(buf);
